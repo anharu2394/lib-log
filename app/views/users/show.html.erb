@@ -31,7 +31,7 @@
         </p>
         <p><%= link_to"他の人の記録を見る（#{rv.book.reviews.count}件）", book_path(rv.book.id),method: :get %></p>
         <p><%=link_to"編集",edit_book_review_path(rv.book.id,rv.id),method: :get %></p>
-        <p><%=link_to"消去","/books/#{rv.book.id}/reviews/#{current_user.id}",method: :delete%></p>
+        <p><%=link_to"消去","/books/#{rv.book.id}/reviews/#{rv.id}",method: :delete%></p>
         </div>
       </div>
     </div>
