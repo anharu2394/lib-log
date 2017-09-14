@@ -1,0 +1,91 @@
+<div class="container">
+<% if current_user.present? %>
+<% if current_user.id == @user.id %>
+  <h1><%= current_user.username %>さんのマイページ</h1>
+  <h2>プロフィール</h2>
+  <% if current_user.user_detail.present? %>
+  <p><%= current_user.user_detail.profile %></p>
+  <p>性別：<%= current_user.user_detail.gender %></p>
+  <p>年齢：<%= current_user.user_detail.age %>歳</p>
+ <%= link_to"編集", edit_user_registration_path,method: :get %>
+  <%= link_to"プロフィールを編集する",edit_user_detail_path(current_user.user_detail.id),method: :get %>
+  <% else %>
+  <%= link_to"プロフィールを設定する",new_user_detail_path,method: :get %>
+  <% end %>
+  <h2>記録した本</h2>
+  <div class="row">
+  <% @reviews.each do |rv| %>
+  <div class="col-md-3">
+    <div class="panel panel-success">
+    <div class="panel-heading"><h3><%= rv.book.title %></h3></div>
+    <p><%= rv.text %></p>
+    <p>評価：<%=rv.rate %>点/１０点中<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=rv.rate %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%=rv.rate %>0%;">
+    <%=rv.rate %>点
+  </div>
+</div></p>
+    <p><%= link_to"他の人の記録を見る（#{rv.book.reviews.count}件）", book_path(rv.book.id),method: :get %></p>
+    <p><%=link_to"編集",edit_book_review_path(rv.book.id,rv.id),method: :get %></p>
+    <p><%=link_to"消去","/books/#{rv.book.id}/reviews/#{current_user.id}",method: :delete%></p>
+    </div>
+    </div>
+  <% end %>
+  </div>
+<% else%>
+<h1><%= @user.username %>さんのユーザーページ</h1>
+  <h2>プロフィール</h2>
+  <p><%= @user.user_detail.profile %></p>
+  <p>性別：<%= @user.user_detail.gender %></p>
+
+
+  <h2>記録した本</h2>
+  <div class="row">
+  <% @reviews.each do |rv| %>
+  <div class="col-md-3">
+    <div class="panel panel-success">
+    <div class="panel-heading"><h3><%= rv.book.title %></h3></div>
+    <% if rv.text.present? %>
+    <p><%= rv.text %></p>
+    <% else %>
+    <p>感想はありません</p>
+    <% end %>
+    <p>評価：<%=rv.rate %>点/１０点中<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=rv.rate %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%=rv.rate %>0%;">
+    <%=rv.rate %>点
+  </div>
+</div></p>
+    <p><%= link_to"他の人の記録を見る（#{rv.book.reviews.count}件）", book_path(rv.book.id),method: :get %></p>
+    </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+<% else %>
+<h1><%= @user.username %>さんのユーザーページ</h1>
+  <h2>プロフィール</h2>
+  <p><%= @user.user_detail.profile %></p>
+  <p>性別：<%= @user.user_detail.gender %></p>
+
+  <h2>記録した本</h2>
+  <div class="row">
+  <% @reviews.each do |rv| %>
+  <div class="col-md-3">
+    <div class="panel panel-success">
+    <div class="panel-heading"><h3><%= rv.book.title %></h3></div>
+    <% if rv.text.present? %>
+    <p><%= rv.text %></p>
+    <% else %>
+    <p>感想はありません</p>
+    <% end %>
+    <p>評価：<%=rv.rate %>点/１０点中<div class="progress">
+  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%=rv.rate %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%=rv.rate %>0%;">
+    <%=rv.rate %>点
+  </div>
+</div></p>
+    <p><%= link_to"他の人の記録を見る（#{rv.book.reviews.count}件）", book_path(rv.book.id),method: :get %></p>
+    </div>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+</div>

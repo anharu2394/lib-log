@@ -1,0 +1,8 @@
+<div class="container"><h1><%= current_user.username%>さんのプロフィール設定</h1>
+<%= form_for @user_detail do |f| %>
+  <%= f.text_area :profile, placeholder: 'プロフィールを書いてね！', size: "100" %><br>
+    <p>年齢：<%= f.number_field :age,max:200,min:0 %></p>
+  <p>性別：<%= f.select :gender, ["男" , "女"] %></p>
+  <%= button_tag "送信", type: "submit", class: "send-btn"%>
+<% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="content">
+  <h1>記録一覧</h1>
+  <% @review.each do |rv| %>
+  <div class="review">
+  評価：<%= rv.rate %>点/10点中<br>
+  <%= rv.text %>
+  </div>
+  <% end %>
+</div>

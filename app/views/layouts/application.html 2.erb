@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BookApp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style type="text/css">
+  @media ( min-width: 768px ) {
+    #banner {
+      min-height: 300px;
+      border-bottom: none;
+    }
+    .bs-docs-section {
+      margin-top: 8em;
+    }
+    .bs-component {
+      position: relative;
+    }
+    .bs-component .modal {
+      position: relative;
+      top: auto;
+      right: auto;
+      left: auto;
+      bottom: auto;
+      z-index: 1;
+      display: block;
+    }
+    .bs-component .modal-dialog {
+      width: 90%;
+    }
+    .bs-component .popover {
+      position: relative;
+      display: inline-block;
+      width: 220px;
+      margin: 20px;
+    }
+    .nav-tabs {
+      margin-bottom: 15px;
+    }
+    .progress {
+      margin-bottom: 10px;
+    }
+  }
+  @media (min-width: 768px) {
+  body{
+    padding-top: 241px;
+  }
+}
+  @media (max-width: 768px) {
+  body{
+    padding-top: 80px;
+  }
+}
+@media (min-width: 991px) {
+  body{
+    padding-top: 80px;
+
+  }
+
+}
+  .padd{
+    padding-bottom: 28px;
+  }
+  </style>
+</head>
+<body >
+<header>
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="/" class="navbar-brand">Book-App</a>
+        <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="navbar-collapse collapse" id="navbar-main">
+        <ul class="nav navbar-nav">
+        <% unless user_signed_in? %>
+             <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+             <li >
+              <%= link_to "本のランキング",ranking_books_path,method: :get%>
+            </li>
+            <li >
+              <%= link_to "記録する",search_books_path,method: :get%>
+            </li>
+            <li >
+              <%= link_to "ログイン", new_user_session_path,method: :get %>
+            </li>
+            <% else %>
+ <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+            <li >
+              <%= link_to "本のランキング",ranking_books_path,method: :get%>
+            </li>
+             <li>
+              <%= link_to "記録する", search_books_path,method: :get %>
+            </li>
+
+            <li >
+              <%= link_to "サインアウト",destroy_user_session_path,method: :delete %>
+            </li>
+            <li>
+              <%= link_to "#{current_user.username}さんのマイページ", user_path(current_user.id),method: :get %>
+            </li>
+        <% end %>
+        <%= form_tag('/books/search', method: :get,:class => "navbar-form navbar-left") do %>
+        <div class="form-group">
+        <input name="keyword" placeholder="本を探す" type="text" class="form-control">
+        </div>
+        <button class="btn btn-primary" title="検索" type="submit">検索</button></input>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,442 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><h1 class="panel-title">ランキング一覧</h1></div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item"><a href="#g1">男性に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#g2">女性に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a0">0~10歳の人に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a1">10代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a2">20代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a3">30代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a4">40代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a5">50代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a6">60代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a7">70代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a8">80代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a9">90代に評価がいいランキング</a></li>
+    <li class="list-group-item"><a href="#a10">100歳以上の人に評価がいいランキング</a></li>
+  </ul>
+</div>
+<div id="g1" style="height:100px;"></div>
+<div>
+<h1 class="text-center" >男性に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates.present? %>
+<% @rates.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+</div>
+<div id="g2" style="height:100px;"></div>
+<h1 class="text-center">女性に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates2.present? %>
+<% @rates2.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+
+
+<div id="a0" style="height:100px;"></div>
+<h1 class="text-center" id="a0">0~10歳の人に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age.present? %>
+<% @rates_age.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+<div id="a1" style="height:100px;"></div>
+<h1 class="text-center" id="a1">10代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age2.present? %>
+<% @rates_age2.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+
+
+<div id="a2" style="height:100px;"></div>
+<h1 class="text-center" id="a2">20代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age3.present? %>
+<% @rates_age3.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+<div id="a3" style="height:100px;"></div>
+<h1 class="text-center" id="a3">30代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% rank = 0 %>
+<% if @rates_age4.present? %>
+<% @rates_age4.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+
+
+
+<div id="a4" style="height:100px;"></div>
+<h1 class="text-center">40代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age5.present? %>
+<% @rates_age5.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+<div id="a5" style="height:100px;"></div>
+<h1 class="text-center">50代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age6.present? %>
+<% @rates_age6.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+<div id="a6" style="height:100px;"></div>
+<h1 class="text-center">60代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age7.present? %>
+<% @rates_age7.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+
+<div id="a7" style="height:100px;"></div>
+<h1 class="text-center">70代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age8.present? %>
+<% @rates_age8.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+
+<div id="a8" style="height:100px;"></div>
+<h1 class="text-center">80代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age9.present? %>
+<% @rates_age9.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+<div id="a9" style="height:100px;"></div>
+<h1 class="text-center">90代に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age10.present? %>
+<% @rates_age10.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>
+<div id="a10" style="height:100px;"></div>
+<h1 class="text-center">100歳以上の人に評価がいいランキング</h1>
+<% rank = 0 %>
+<% if @rates_age11.present? %>
+<% @rates_age11.each do |book| %>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+      <div class="panel panel-info ">
+      <% rank += 1 %>
+      <%@book = Book.find(book[:id]) %>
+      <div class="panel-heading">
+        <h2 class="panel-title"><span class="label label-warning"><%= rank %></span>
+        <%= @book.title %></h2>
+      </div>
+      <div class="panel-body">
+      <p>評価：<%= book[:rate] %>点/１０点中
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book[:rate] %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book[:rate] %>0%;">
+          <%= book[:rate] %>点
+          </div>
+      </div></p>
+      </div> <!-- class="panel-body" -->
+    </div><!--  .panel -->
+    </div> <!-- col-md-1 -->
+    <div class="col-md-1"></div>
+     </div> <!-- row -->
+    <% end %>
+    <% else %>
+    <h3 class="text-center">まだデータがありません</h3>
+    <% end %>

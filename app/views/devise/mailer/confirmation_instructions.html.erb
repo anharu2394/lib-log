@@ -1,0 +1,5 @@
+<p>ようこそ！ <%= @email %>さん!</p>
+
+<p>このリンクを押してアカウントを認証してください:</p>
+<p>googleからログインした場合は必要ありません</p>
+<p><%= link_to 'アカウントを認証する', confirmation_url(@resource, confirmation_token: @token) %></p>

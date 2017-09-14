@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>どの本を記録しますか？</h1>
+    <h2>本を探す</h2>
+    <%= form_tag('/books/search', method: :get,:class => "form-inline") do %>
+        <div class="form-group">
+        <input name="keyword" placeholder="タイトルで検索" type="text" class="form-control">
+        </div>
+        <div class="form-group">
+        <button class="btn btn-primary" title="検索" type="submit">検索</button></input>
+        </div>
+    <% end %>
+    <h2>検索結果</h2>
+    <% if !@books.nil? %>
+    <% @books.each do |book| %>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <p><%= book.title %></p>
+                    <p><%= link_to"記録を見る（#{book.reviews.count}件）", book_path(book.id),method: :get %></p>
+                    <p><%= link_to "この本の記録を書く",new_book_review_path(book.id),method: :get %></p>
+                    <% if book.reviews.present? %>
+                    <p>評価：<%= book.reviews.average(:rate).round %>点/１０点中
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= book.reviews.average(:rate).round %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= book.reviews.average(:rate).round %>0%;">
+                              <%= book.reviews.average(:rate).round %>点
+                            </div>
+                        </div>
+                    </p>
+                <% else %>
+                <p>評価がありません</p>
+                <% end %>
+                </div>
+            </div> <!-- class="col-md-4" -->
+            <% end %>
+            <div class="col-md-8"></div>
+        </div> <!-- row -->
+    <% end %>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <h2>記録する本が見つからない場合....</h2>
+            <h3><%=  link_to "本を登録する",new_book_path,method: :get %></h3>
+        </div>
+    </div>
+</div>

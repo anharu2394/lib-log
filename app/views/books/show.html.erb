@@ -1,0 +1,27 @@
+<h1><%= @book.title %></h1>
+<p>作者：<%= @book.writer %>さん</p>
+<%= link_to "Amazonで見る", "https://www.amazon.co.jp/s/ref=nb_sb_noss?__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&url=search-alias%3Dstripbooks&field-keywords=#{@book.title}"%>
+<p><%= link_to "この本の記録を書く",new_book_review_path(@book.id),method: :get %></p>
+<h2>記録一覧</h2>
+<div class="row">
+  <% @review.each do |rv| %>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><ins><%= link_to "#{rv.user.username}さん", user_path(rv.user.id),method: :get ,class:"userpage"%></ins>の記録</h3>
+        </div>
+        <div class="panel-body">
+          <p>評価：<%= rv.rate %>点/10点中
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="<%= rv.rate %>0" aria-valuemin="0" aria-valuemax="100" style="width: <%= rv.rate %>0%;">
+                <%= rv.rate %>点
+              </div> <!-- .progress-bar progress-bar-success -->
+            </div> <!-- .progress -->
+          </p>
+          <p>感想：<%= rv.text %></p>
+        </div> <!-- .panel-body -->
+      </div><!--  .panel panel-defaul -->
+    </div> <!-- .col-md-4 -->
+  <% end %> <!-- @review.each do |rv|  -->
+</div> <!-- .row -->
+

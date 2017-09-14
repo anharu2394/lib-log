@@ -1,0 +1,7 @@
+<div class="container"><h1><%= @book.title %>の記録</h1>
+<%= form_for [@book,@review] do |f| %>
+  <div class="form-group">評価（１〜１０）：<%= f.number_field :rate,max:10,min:0,class:"form-control"%></div>
+  <div class="form-group">感想：<%= f.text_area :text,class:"form-control",size:4 %></div>
+  <div class="form-group"><%= button_tag "送信", type: "submit", class: "btn btn-default"%></div>
+<% end %>
+</div>

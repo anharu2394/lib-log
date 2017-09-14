@@ -1,0 +1,8 @@
+<div class-="content">
+  <h1><%= @book.title %>の記録</h1>
+  <%= form_for [@book,@review] do |f| %>
+    <%= f.number_field :rate,max:10,min:0%><br>
+    <%= f.text_area :text %><br>
+    <%= button_tag "送信", type: "submit", class: "send-btn"%>
+  <% end %>
+</div>
