@@ -30,7 +30,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
     gem 'spring'
   gem 'pry-rails'
   gem 'compass-rails','~> 2.0'
-  gem 'sprockets', '2.11.0'
+  gem 'sprockets', '2.12.5'
   gem 'omniauth'
   gem 'omniauth-google-oauth2'
 # Use Unicorn as the app server
@@ -53,7 +53,7 @@ group :development do
   gem 'spring'
   gem 'pry-rails'
   gem 'compass-rails','~> 2.0'
-  gem 'sprockets', '2.11.0'
+  gem 'sprockets', '2.12.5'
   gem 'devise'
   gem 'kaminari'
   gem 'twitter-bootstrap-rails'
